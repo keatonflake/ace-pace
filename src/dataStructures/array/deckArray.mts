@@ -26,7 +26,7 @@ class DeckArray {
   }
 
   createDeck() {
-    const suits = ["spade", "club", "dimond", "heart"];
+    const suits = ["spade", "club", "diamond", "heart"];
     const ranks = [
       "2",
       "3",
@@ -92,22 +92,29 @@ class DeckArray {
   }
 
   dealAll(numCards = 1): void {
-    console.log(`\nDealing ${numCards} cards from the deck...\n`);
-    // if card amount is less than numCards deal the rest of the deck
+    if (this.cards.length === 0) {
+      console.log("\nNo cards left to deal.");
+      return;
+    }
+
     if (numCards > this.cards.length) {
       numCards = this.cards.length;
     }
-    // determine what cards will be delt
-    // strip deck of number of cards starting with 0
-    let deltCards = this.cards.splice(0, numCards);
+
+    const deltCards = this.cards.splice(0, numCards);
     console.log(`Dealing ${numCards} cards:`);
     deltCards.forEach((card) => {
-      let { suit, rank } = card;
-      console.log(`${rank} of ${suit}s`);
+      console.log(`${card.rank} of ${card.suit}s`);
     });
+
     console.log(`\n${this.cards.length} cards left in the deck`);
-    this.dealAll(numCards);
+
+    if (this.cards.length > 0) {
+      this.dealAll(numCards); // Continue recursively
+    }
   }
+
+
 
   async dealWithDelay(numCards = 1): Promise<void> {
     console.log(`\nDealing ${numCards} cards with delay...\n`);
@@ -130,7 +137,7 @@ class DeckArray {
       const action = readlineSync.question(
         `\n What would you like to do?\n1)Display Deck\n2)Shuffle Deck\n3)Deal once\n4)Deal all\n5)Deal with Delay\n6)Exit\n`
       );
-      let numCards: any;
+      // let numCards: any;
 
       switch (parseInt(action)) {
         case 1:
@@ -141,18 +148,18 @@ class DeckArray {
           console.log("Deck shuffled.");
           break;
         case 3:
-          numCards = readlineSync.questionInt("How many cards to deal?");
-          this.deal(numCards);
+          let singleDealAmount = readlineSync.questionInt("How many cards to deal?");
+          this.deal(singleDealAmount);
           break;
         case 4:
-          numCards = readlineSync.questionInt(
+          let repeatedDealAmount = readlineSync.questionInt(
             "How many cards should be dealt at a time until the deck is empty?"
           );
-          this.dealAll(numCards);
+          this.dealAll(repeatedDealAmount);
           break;
         case 5:
-          numCards = readlineSync.questionInt("How many cards should be dealt?");
-          await this.dealWithDelay(numCards);
+          let delayedDealAmount = readlineSync.questionInt("How many cards should be dealt?");
+          await this.dealWithDelay(delayedDealAmount);
           break;
         case 6:
           play = false;
