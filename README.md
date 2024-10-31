@@ -8,7 +8,7 @@ Currently it uses:
 - Lists
 - Asynchronous functions
 
-[Software Demo Video]([http://youtube.link.goes.here](https://www.youtube.com/watch?v=9vig3H-gueY))
+[Software Demo Video]([[http://youtube.link.goes.here](https://youtu.be/9vig3H-gueY)])
 
 # Development Environment
 
@@ -16,8 +16,8 @@ This project is written in typescript.
 
 # Useful Websites
 
-- [Web Site Name](https://www.contentful.com/blog/what-is-typescript-and-why-should-you-use-it/#:~:text=TypeScript%20extends%20JavaScript%20and%20improves,%2C%20tuple%2C%20generics%2C%20etc.)
-- [Web Site Name](https://www.typescriptlang.org/)
+- [contentful.com: What is TypeScript and why use it?](https://www.contentful.com/blog/what-is-typescript-and-why-should-you-use-it/#:~:text=TypeScript%20extends%20JavaScript%20and%20improves,%2C%20tuple%2C%20generics%2C%20etc.)
+- [TypeScript Docs](https://www.typescriptlang.org/)
 
 # Future Work
 
