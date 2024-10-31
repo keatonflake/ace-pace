@@ -8,7 +8,7 @@ Currently it uses:
 - Lists
 - Asynchronous functions
 
-[Software Demo Video](http://youtube.link.goes.here](https://youtu.be/9vig3H-gueY)
+[Software Demo Video](https://youtu.be/9vig3H-gueY)
 
 # Development Environment
 
